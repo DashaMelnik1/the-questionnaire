@@ -42,19 +42,21 @@ form.addEventListener("submit", (event) => {
             })
             .then((data) => {
                 console.log(data);
-                darkening.classList.add('content');
-                window.classList.add('content');
-                text.textContent = data.message;
                 form.reset();
-
+                classAndText(data);
             })
             .catch((err) => {
                 console.log(err);
-                darkening.classList.add('content');
-                window.classList.add('content');
-                text.textContent = data.message;
+                classAndText(data);
             })
     })
+
+    function classAndText(data) {
+        darkening.classList.add('content');
+        window.classList.add('content');
+        text.textContent = data.message;
+    }
+
     clickClose.addEventListener('click', () => {
         darkening.classList.remove('content');
         window.classList.remove('content');
